@@ -1,0 +1,35 @@
+import { Terminal, Heart } from 'lucide-react';
+
+const Footer = () => {
+  return (
+    <footer className="py-8 border-t border-primary/20 bg-background/50 backdrop-blur-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <Terminal className="w-5 h-5 text-primary glow-blue" />
+            <span className="font-display font-bold">
+              HL_<span className="text-secondary">CYBER</span>
+            </span>
+          </div>
+
+          {/* Copyright */}
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span>© 2025 Hugo Lambert</span>
+            <span>•</span>
+            <span className="flex items-center gap-1">
+              Made with <Heart className="w-4 h-4 text-primary fill-primary" /> and cybersecurity passion
+            </span>
+          </div>
+
+          {/* Tech Stack */}
+          <div className="text-xs text-muted-foreground">
+            <span className="font-mono">Built with React + TypeScript + Tailwind</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
