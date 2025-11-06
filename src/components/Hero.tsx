@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Shield, Terminal, Activity, AlertTriangle, Download, FileText } from 'lucide-react';
+import { Shield, Terminal, Activity, AlertTriangle, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroBg from '@/assets/hero-bg.jpg';
 import avatar from '@/assets/avatar.jpg';
@@ -121,8 +121,7 @@ const Hero = () => {
             {/* Mission Title */}
             <div className="text-center mb-12 animate-fade-up">
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                <span className="glow-blue">Bienvenue</span>{' '}
-                <span className="glow-purple">Agent Recruteur</span>
+                <span className="glow-blue">Bienvenue</span>
               </h1>
               <div className="w-32 h-1 bg-gradient-cyber mx-auto rounded-full shadow-neon-blue mb-8" />
             </div>
@@ -135,28 +134,18 @@ const Hero = () => {
                 </div>
                 <div className="flex-1">
                   <h2 className="text-2xl md:text-3xl font-display font-bold mb-2 glow-blue">
-                    Mission Objective
+                    Mission
                   </h2>
                   <p className="text-sm text-muted-foreground font-mono">
-                    PRIORITY: HIGH | CLEARANCE: LEVEL 3
+                    PRIORITE : ELEVE | RISQUE : NIVEAU 3
                   </p>
                 </div>
               </div>
 
               <div className="space-y-4 mb-8">
                 <p className="text-lg md:text-xl leading-relaxed">
-                  Votre mission : <span className="text-primary font-semibold">identifier la faille sur le réseau</span>.
+                  Votre mission : <span className="text-primary font-semibold">Découvrir la faille sur le réseau pour accéder à un fichier confidentiel.</span>
                 </p>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  Un scan complet du système va être lancé. Vous devrez analyser les données collectées 
-                  pour localiser le profil du candidat cible et accéder à son rapport de compétences.
-                </p>
-                <div className="flex items-center gap-2 p-4 bg-primary/5 border border-primary/20 rounded-lg">
-                  <Terminal className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-sm font-mono text-primary">
-                    TARGET: Hugo LAMBERT | STATUS: CYBERSECURITY SPECIALIST
-                  </p>
-                </div>
               </div>
 
               <Button
@@ -309,49 +298,26 @@ const Hero = () => {
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 animate-fade-up">
-            <span className="glow-blue">Hugo</span>{' '}
-            <span className="glow-purple">LAMBERT</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-8 animate-fade-up">
+            <span className="glow-blue">Hugo LAMBERT</span>
           </h1>
 
           {/* Status */}
-          <div className="mb-8 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-4">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-mono text-primary">STATUS: AUTHORIZED</span>
-            </div>
-            <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-4">
+          <div className="mb-12 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+            <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground">
               Étudiant en <span className="text-primary font-semibold">Cybersécurité</span>
-            </p>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Développeur <span className="text-secondary font-semibold">Web / Mobile</span>
             </p>
           </div>
 
-          {/* Description */}
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            Passionné par la sécurité informatique et le développement, je me spécialise dans la{' '}
-            <span className="text-primary font-semibold">détection de vulnérabilités</span>, les{' '}
-            <span className="text-secondary font-semibold">tests de pénétration</span> et la création d'applications sécurisées.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+          {/* CTA Button */}
+          <div className="flex items-center justify-center animate-fade-up" style={{ animationDelay: '0.2s' }}>
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary-glow text-primary-foreground shadow-neon-blue font-semibold px-8 py-6 text-lg group"
+              className="bg-black/80 border-2 border-primary hover:bg-primary/20 text-primary shadow-neon-blue font-mono font-bold px-12 py-8 text-xl group relative overflow-hidden"
             >
-              <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-              📄 Télécharger le rapport
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={scrollToAbout}
-              className="border-secondary hover:bg-secondary/10 hover:border-secondary shadow-neon-purple font-semibold px-8 py-6 text-lg group"
-            >
-              <FileText className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-              Consulter le profil complet
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-scan" />
+              <Terminal className="w-6 h-6 mr-3 group-hover:animate-pulse relative z-10" />
+              <span className="relative z-10">&gt; TELECHARGER_CV.pdf</span>
             </Button>
           </div>
         </div>

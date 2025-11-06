@@ -1,162 +1,147 @@
-import { Shield, Bug, Network, Eye, Terminal, Search } from 'lucide-react';
-import { Card } from '@/components/ui/card';
+import { Shield, Code, Wrench, Terminal, Network, Bug, Search, Target } from 'lucide-react';
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: 'Analyse Réseau',
-      icon: Network,
-      color: 'primary',
-      skills: [
-        { 
-          name: 'Wireshark', 
-          icon: Network, 
-          description: 'Analyse de paquets pour diagnostiquer les compromissions réseau et détecter les anomalies de trafic'
-        },
-        { 
-          name: 'Nmap', 
-          icon: Search, 
-          description: 'Scanner réseau pour identifier les hôtes actifs, ports ouverts et services vulnérables'
-        },
-        { 
-          name: 'tcpdump', 
-          icon: Terminal, 
-          description: 'Capture et analyse de trafic réseau en ligne de commande pour investigation approfondie'
-        },
-      ],
-    },
-    {
-      title: 'Exploitation & Tests',
-      icon: Bug,
-      color: 'secondary',
-      skills: [
-        { 
-          name: 'Metasploit', 
-          icon: Bug, 
-          description: 'Framework d\'exploitation de vulnérabilités pour tests de pénétration avancés'
-        },
-        { 
-          name: 'Burp Suite', 
-          icon: Shield, 
-          description: 'Suite complète pour tests de sécurité web : proxy, scanner, intrus et analyse de requêtes'
-        },
-        { 
-          name: 'OWASP Top 10', 
-          icon: Shield, 
-          description: 'Exploitation des vulnérabilités web courantes (SQLi, XSS, CSRF, etc.)'
-        },
-      ],
-    },
-    {
-      title: 'Investigation & OSINT',
-      icon: Eye,
-      color: 'accent',
-      skills: [
-        { 
-          name: 'Maltego', 
-          icon: Eye, 
-          description: 'Plateforme OSINT pour cartographier les relations et collecter des renseignements en ligne'
-        },
-        { 
-          name: 'Sherlock', 
-          icon: Search, 
-          description: 'Outil de recherche de profils sur les réseaux sociaux pour investigation numérique'
-        },
-      ],
-    },
-    {
-      title: 'Environnements & Plateformes',
-      icon: Terminal,
-      color: 'primary',
-      skills: [
-        { 
-          name: 'Kali Linux', 
-          icon: Terminal, 
-          description: 'Distribution spécialisée pour tests de pénétration avec +600 outils de sécurité préinstallés'
-        },
-        { 
-          name: 'TryHackMe', 
-          icon: Shield, 
-          description: 'Plateforme d\'entraînement avec labs pratiques pour apprendre la cybersécurité offensive'
-        },
-        { 
-          name: 'Hack The Box', 
-          icon: Bug, 
-          description: 'Environnement de pentest réaliste avec machines vulnérables et challenges avancés'
-        },
-      ],
-    },
-  ];
+  const skillsData = {
+    cybersecurity: [
+      { name: 'Nmap', level: 85, icon: Search },
+      { name: 'Metasploit', level: 75, icon: Bug },
+      { name: 'Burp Suite', level: 80, icon: Shield },
+      { name: 'Wireshark', level: 85, icon: Network },
+      { name: 'Aircrack-ng', level: 70, icon: Terminal },
+      { name: 'Hydra', level: 75, icon: Target },
+    ],
+    development: [
+      { name: 'HTML / CSS', level: 90, icon: Code },
+      { name: 'JavaScript', level: 80, icon: Code },
+      { name: 'PHP', level: 85, icon: Code },
+      { name: 'SQL', level: 80, icon: Code },
+      { name: 'Kotlin / Java', level: 70, icon: Code },
+    ],
+    tools: [
+      { name: 'Linux (Kali)', level: 85, icon: Terminal },
+      { name: 'Docker', level: 70, icon: Wrench },
+      { name: 'GitHub', level: 85, icon: Wrench },
+      { name: 'VirtualBox', level: 80, icon: Wrench },
+    ],
+  };
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-background to-background/50 relative overflow-hidden">
-      <div className="absolute inset-0 cyber-grid opacity-5" />
+    <section id="skills" className="py-20 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="cyber-grid absolute inset-0 opacity-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
+      </div>
 
+      {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16 animate-fade-up">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              <span className="glow-blue">Arsenal</span> <span className="glow-purple">Cybersécurité</span>
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 glow-blue">
+              Compétences Techniques
             </h2>
-            <div className="w-20 h-1 bg-gradient-cyber mx-auto rounded-full shadow-neon-blue mb-4" />
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Outils et compétences maîtrisés pour la détection, l'analyse et l'exploitation de vulnérabilités
-            </p>
+            <div className="w-32 h-1 bg-gradient-cyber mx-auto rounded-full shadow-neon-blue" />
           </div>
 
-          {/* Skills Categories */}
-          {skillCategories.map((category, categoryIndex) => (
-            <div 
-              key={categoryIndex}
-              className="mb-16 animate-fade-up"
-              style={{ animationDelay: `${categoryIndex * 0.1}s` }}
-            >
-              {/* Category Header */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-primary/10 rounded-lg shadow-neon-blue">
-                  <category.icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-display font-bold glow-blue">{category.title}</h3>
-              </div>
-
-              {/* Skills Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <Card
-                    key={skillIndex}
-                    className="group relative p-6 bg-card/40 backdrop-blur-sm border-primary/20 hover:border-primary/60 transition-all duration-300 hover:shadow-neon-blue hover:-translate-y-1 cursor-pointer overflow-hidden"
-                  >
-                    {/* Hover Glow Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
-                    <div className="relative flex items-start gap-4">
-                      {/* 3D Icon with Glow */}
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-primary/20 blur-xl rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <div className="relative p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                          <skill.icon className="w-8 h-8 text-primary" />
-                        </div>
-                      </div>
-                      
-                      {/* Skill Info */}
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-display font-bold text-xl mb-2 text-foreground group-hover:text-primary transition-colors duration-300">
-                          {skill.name}
-                        </h4>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {skill.description}
-                        </p>
-                      </div>
+          {/* Cybersecurity Skills */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-display font-bold mb-8 text-primary flex items-center gap-3">
+              <Shield className="w-8 h-8" />
+              Cybersécurité
+            </h3>
+            <div className="space-y-6">
+              {skillsData.cybersecurity.map((skill, index) => (
+                <div
+                  key={index}
+                  className="group bg-card/30 backdrop-blur-sm border border-primary/20 rounded-xl p-6 hover:border-primary/50 hover:bg-card/50 transition-all duration-300 hover:shadow-neon-blue animate-fade-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <skill.icon className="w-5 h-5 text-primary" />
+                      <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {skill.name}
+                      </span>
                     </div>
-
-                    {/* Bottom Accent Line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </Card>
-                ))}
-              </div>
+                    <span className="text-sm font-mono text-primary">{skill.level}%</span>
+                  </div>
+                  <div className="w-full h-3 bg-background/50 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-primary to-primary-glow transition-all duration-1000 shadow-neon-blue"
+                      style={{ width: `${skill.level}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Development Skills */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-display font-bold mb-8 text-secondary flex items-center gap-3">
+              <Code className="w-8 h-8" />
+              Développement Web / Mobile
+            </h3>
+            <div className="space-y-6">
+              {skillsData.development.map((skill, index) => (
+                <div
+                  key={index}
+                  className="group bg-card/30 backdrop-blur-sm border border-secondary/20 rounded-xl p-6 hover:border-secondary/50 hover:bg-card/50 transition-all duration-300 hover:shadow-neon-purple animate-fade-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <skill.icon className="w-5 h-5 text-secondary" />
+                      <span className="font-semibold text-foreground group-hover:text-secondary transition-colors">
+                        {skill.name}
+                      </span>
+                    </div>
+                    <span className="text-sm font-mono text-secondary">{skill.level}%</span>
+                  </div>
+                  <div className="w-full h-3 bg-background/50 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-secondary to-purple-400 transition-all duration-1000 shadow-neon-purple"
+                      style={{ width: `${skill.level}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tools */}
+          <div>
+            <h3 className="text-2xl md:text-3xl font-display font-bold mb-8 text-accent flex items-center gap-3">
+              <Wrench className="w-8 h-8" />
+              Outils & DevOps
+            </h3>
+            <div className="space-y-6">
+              {skillsData.tools.map((tool, index) => (
+                <div
+                  key={index}
+                  className="group bg-card/30 backdrop-blur-sm border border-accent/20 rounded-xl p-6 hover:border-accent/50 hover:bg-card/50 transition-all duration-300 hover:shadow-card animate-fade-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <tool.icon className="w-5 h-5 text-accent" />
+                      <span className="font-semibold text-foreground group-hover:text-accent transition-colors">
+                        {tool.name}
+                      </span>
+                    </div>
+                    <span className="text-sm font-mono text-accent">{tool.level}%</span>
+                  </div>
+                  <div className="w-full h-3 bg-background/50 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-accent to-accent/70 transition-all duration-1000"
+                      style={{ width: `${tool.level}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
