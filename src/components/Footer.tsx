@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="flex items-center gap-2">
             <Terminal className="w-5 h-5 text-primary glow-blue" />
             <span className="font-display font-bold">
-              HL_<span className="text-secondary">CYBER</span>
+              HUGO_<span className="text-secondary">LAMBERT</span>
             </span>
           </div>
 
@@ -24,7 +24,7 @@ const Footer = () => {
 
           {/* Tech Stack */}
           <div className="text-xs text-muted-foreground">
-            <span className="font-mono">Built with React + TypeScript + Tailwind</span>
+            <span className="font-mono">Construit avec React, TypeScript et Tailwind</span>
           </div>
         </div>
       </div>

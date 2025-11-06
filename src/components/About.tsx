@@ -4,20 +4,20 @@ import { Card } from '@/components/ui/card';
 const About = () => {
   const timeline = [
     {
+      year: '2026 - 2028',
+      type: 'education',
+      title: '(A venir) Mastère Expert Cybersécurité',
+      institution: 'Ynov Campus Bordeaux',
+      description: 'Formation en alternance - Titre Expert en cybersécurité de niveau 7',
+    },
+    {
       year: '2025 - 2026',
       type: 'education',
       title: 'Bachelor 3 Cyber Sécurité',
       institution: 'Ynov Campus Bordeaux',
-      description: 'Formation en alternance - Administrateur systèmes, réseaux et cybersécurité',
+      description: 'Formation en alternance chez Etoile Secours - Titre Administrateur systèmes, réseaux et bases de données de niveau 6',
     },
-    {
-      year: '2023 - 2025',
-      type: 'education',
-      title: 'BTS SIO SLAM',
-      institution: 'Cipecma',
-      description: 'Solutions Logicielles et Applications Métiers en alternance',
-    },
-    {
+        {
       year: '2023 - 2026',
       type: 'work',
       title: 'Apprenti Informatique',
@@ -26,10 +26,17 @@ const About = () => {
     },
     {
       year: '2023 - 2025',
-      type: 'certification',
-      title: 'Certifications CNIL & ANSSI',
-      institution: 'Organismes officiels',
-      description: 'Certifications en protection des données et sécurité des systèmes d\'information',
+      type: 'education',
+      title: 'BTS SIO (Services Informatiques aux Organisations) SLAM (Solutions Logicielles et Aplications Métiers)',
+      institution: 'Cipecma',
+      description: 'En alternance chez Etoile Secours',
+    },
+    {
+      year: '2021 - 2022',
+      type: 'education',
+      title: 'Bac STI2D option SIN - Système d\'information et numérique',
+      institution: 'Lycée Léonce Vieljeux',
+      description: '',
     },
   ];
 

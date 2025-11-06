@@ -1,27 +1,27 @@
-import { Shield, Code, Wrench, Terminal, Network, Bug, Search, Target } from 'lucide-react';
+import { Shield, Code, Wrench, Terminal, Network, Bug, Search, Target, Database, Globe, Smartphone } from 'lucide-react';
 
 const Skills = () => {
   const skillsData = {
     cybersecurity: [
-      { name: 'Nmap', level: 85, icon: Search },
-      { name: 'Metasploit', level: 75, icon: Bug },
-      { name: 'Burp Suite', level: 80, icon: Shield },
-      { name: 'Wireshark', level: 85, icon: Network },
-      { name: 'Aircrack-ng', level: 70, icon: Terminal },
-      { name: 'Hydra', level: 75, icon: Target },
+      { name: 'Nmap', description: 'Outil de scan réseau pour la découverte d\'hôtes et de services.', icon: Search },
+      { name: 'Metasploit', description: 'Framework d\'exploitation pour les tests de pénétration', icon: Bug },
+      { name: 'Burp Suite', description: 'Plateforme d\'analyse et de test de sécurité des applications web.', icon: Shield },
+      { name: 'Wireshark', description: 'Analyseur de paquets réseau pour inspecter le trafic.', icon: Network },
+      { name: 'Aircrack-ng', description: 'Suite d\'outils pour l\'audit et le test de sécurité Wi-Fi.', icon: Terminal },
+      { name: 'Hydra', description: 'Outil de craquage de mots de passe par force brute en ligne.', icon: Target },
     ],
     development: [
-      { name: 'HTML / CSS', level: 90, icon: Code },
-      { name: 'JavaScript', level: 80, icon: Code },
-      { name: 'PHP', level: 85, icon: Code },
-      { name: 'SQL', level: 80, icon: Code },
-      { name: 'Kotlin / Java', level: 70, icon: Code },
+      { name: 'HTML / CSS', description: 'Langages de base pour la conception web front-end.', icon: Globe },
+      { name: 'JavaScript', description: 'Langage pour le développement web interactif.', icon: Code },
+      { name: 'PHP', description: 'Langage serveur pour le développement back-end.', icon: Code },
+      { name: 'SQL', description: 'Langage de requête pour la gestion de bases de données.', icon: Database },
+      { name: 'Kotlin / Java', description: 'Langages pour le développement d\'applications mobiles.', icon: Smartphone },
     ],
     tools: [
-      { name: 'Linux (Kali)', level: 85, icon: Terminal },
-      { name: 'Docker', level: 70, icon: Wrench },
-      { name: 'GitHub', level: 85, icon: Wrench },
-      { name: 'VirtualBox', level: 80, icon: Wrench },
+      { name: 'Linux (Kali)', description: 'Distribution spécialisée pour les tests de sécurité.', icon: Terminal },
+      { name: 'Docker', description: 'Plateforme de conteneurisation pour le déploiement d\'applications.', icon: Wrench },
+      { name: 'GitHub', description: 'Plateforme de gestion de versions et de collaboration.', icon: Wrench },
+      { name: 'VirtualBox', description: 'Logiciel de virtualisation pour créer des environnements de test.', icon: Wrench },
     ],
   };
 
@@ -50,28 +50,22 @@ const Skills = () => {
               <Shield className="w-8 h-8" />
               Cybersécurité
             </h3>
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {skillsData.cybersecurity.map((skill, index) => (
                 <div
                   key={index}
                   className="group bg-card/30 backdrop-blur-sm border border-primary/20 rounded-xl p-6 hover:border-primary/50 hover:bg-card/50 transition-all duration-300 hover:shadow-neon-blue animate-fade-up"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <skill.icon className="w-5 h-5 text-primary" />
-                      <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {skill.name}
-                      </span>
-                    </div>
-                    <span className="text-sm font-mono text-primary">{skill.level}%</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <skill.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </span>
                   </div>
-                  <div className="w-full h-3 bg-background/50 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-primary to-primary-glow transition-all duration-1000 shadow-neon-blue"
-                      style={{ width: `${skill.level}%` }}
-                    />
-                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {skill.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -83,28 +77,22 @@ const Skills = () => {
               <Code className="w-8 h-8" />
               Développement Web / Mobile
             </h3>
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {skillsData.development.map((skill, index) => (
                 <div
                   key={index}
                   className="group bg-card/30 backdrop-blur-sm border border-secondary/20 rounded-xl p-6 hover:border-secondary/50 hover:bg-card/50 transition-all duration-300 hover:shadow-neon-purple animate-fade-up"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <skill.icon className="w-5 h-5 text-secondary" />
-                      <span className="font-semibold text-foreground group-hover:text-secondary transition-colors">
-                        {skill.name}
-                      </span>
-                    </div>
-                    <span className="text-sm font-mono text-secondary">{skill.level}%</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <skill.icon className="w-6 h-6 text-secondary group-hover:scale-110 transition-transform" />
+                    <span className="font-semibold text-foreground group-hover:text-secondary transition-colors">
+                      {skill.name}
+                    </span>
                   </div>
-                  <div className="w-full h-3 bg-background/50 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-secondary to-purple-400 transition-all duration-1000 shadow-neon-purple"
-                      style={{ width: `${skill.level}%` }}
-                    />
-                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {skill.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -114,30 +102,24 @@ const Skills = () => {
           <div>
             <h3 className="text-2xl md:text-3xl font-display font-bold mb-8 text-accent flex items-center gap-3">
               <Wrench className="w-8 h-8" />
-              Outils & DevOps
+              Outils
             </h3>
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {skillsData.tools.map((tool, index) => (
                 <div
                   key={index}
                   className="group bg-card/30 backdrop-blur-sm border border-accent/20 rounded-xl p-6 hover:border-accent/50 hover:bg-card/50 transition-all duration-300 hover:shadow-card animate-fade-up"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <tool.icon className="w-5 h-5 text-accent" />
-                      <span className="font-semibold text-foreground group-hover:text-accent transition-colors">
-                        {tool.name}
-                      </span>
-                    </div>
-                    <span className="text-sm font-mono text-accent">{tool.level}%</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <tool.icon className="w-6 h-6 text-accent group-hover:scale-110 transition-transform" />
+                    <span className="font-semibold text-foreground group-hover:text-accent transition-colors">
+                      {tool.name}
+                    </span>
                   </div>
-                  <div className="w-full h-3 bg-background/50 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-accent to-accent/70 transition-all duration-1000"
-                      style={{ width: `${tool.level}%` }}
-                    />
-                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {tool.description}
+                  </p>
                 </div>
               ))}
             </div>

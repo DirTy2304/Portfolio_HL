@@ -18,7 +18,6 @@ const Navigation = () => {
     { label: 'À propos', href: '#about' },
     { label: 'Compétences', href: '#skills' },
     { label: 'Projets', href: '#projects' },
-    { label: 'Cyber Challenges', href: '#challenges' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -44,7 +43,7 @@ const Navigation = () => {
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollToSection('#hero')}>
             <Terminal className="w-6 h-6 text-primary glow-blue" />
             <span className="text-xl font-display font-bold glow-blue">
-              HL_<span className="text-secondary">CYBER</span>
+              HUGO_<span className="text-secondary">LAMBERT</span>
             </span>
           </div>
 

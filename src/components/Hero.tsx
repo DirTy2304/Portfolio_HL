@@ -272,7 +272,7 @@ const Hero = () => {
       </div>
 
       {/* Success Banner */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 animate-fade-in">
+      <div className="absolute top-[132px] left-1/2 -translate-x-1/2 z-20 animate-fade-in">
         <div className="inline-flex items-center gap-3 px-6 py-3 bg-green-500/10 border border-green-500/30 rounded-full">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
           <span className="text-sm font-mono text-green-500 font-semibold">MISSION COMPLETE - PROFILE ACCESSED</span>
