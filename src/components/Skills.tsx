@@ -1,4 +1,4 @@
-import { Shield, Code, Wrench, Terminal, Globe, Database, Lock, Smartphone } from 'lucide-react';
+import { Shield, Terminal, Globe, Database, Lock, Smartphone, Wrench, Bug, Network, Eye, FileCode, Code, Cloud, Package, GitBranch, HardDrive, Monitor } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const Skills = () => {
@@ -8,12 +8,18 @@ const Skills = () => {
       icon: Shield,
       color: 'primary',
       skills: [
-        { name: 'Pentesting', level: 85, tools: 'Nmap, Metasploit, Burp Suite' },
-        { name: 'Analyse Réseau', level: 80, tools: 'Wireshark, tcpdump' },
-        { name: 'OSINT', level: 75, tools: 'Maltego, Sherlock' },
-        { name: 'Vulnérabilités Web', level: 85, tools: 'OWASP Top 10' },
-        { name: 'Cracking', level: 70, tools: 'Aircrack-ng, Hydra' },
-        { name: 'Systèmes', level: 90, tools: 'Linux (Kali, Ubuntu), Windows' },
+        { name: 'Nmap', icon: Network, description: 'Scan réseau et détection de ports' },
+        { name: 'Metasploit', icon: Bug, description: 'Framework d\'exploitation de vulnérabilités' },
+        { name: 'Burp Suite', icon: Lock, description: 'Tests de sécurité web et proxy d\'interception' },
+        { name: 'Wireshark', icon: Network, description: 'Analyse réseau et capture de paquets' },
+        { name: 'tcpdump', icon: Terminal, description: 'Capture et analyse de trafic réseau en CLI' },
+        { name: 'Maltego', icon: Eye, description: 'OSINT et investigation numérique' },
+        { name: 'Sherlock', icon: Eye, description: 'Recherche de comptes sur les réseaux sociaux' },
+        { name: 'OWASP Top 10', icon: Shield, description: 'Exploitation de vulnérabilités web courantes' },
+        { name: 'Aircrack-ng', icon: Lock, description: 'Audit de sécurité WiFi et cracking WEP/WPA' },
+        { name: 'Hydra', icon: Terminal, description: 'Attaques par force brute sur services réseau' },
+        { name: 'Kali Linux', icon: Terminal, description: 'Distribution pour tests de pénétration' },
+        { name: 'Ubuntu', icon: Terminal, description: 'Système Linux pour développement et prod' },
       ],
     },
     {
@@ -21,11 +27,14 @@ const Skills = () => {
       icon: Globe,
       color: 'secondary',
       skills: [
-        { name: 'Front-end', level: 85, tools: 'HTML, CSS, JavaScript' },
-        { name: 'Back-end', level: 80, tools: 'PHP, CodeIgniter' },
-        { name: 'Base de données', level: 75, tools: 'SQL' },
-        { name: 'CMS', level: 70, tools: 'WordPress' },
-        { name: 'API', level: 75, tools: 'REST API' },
+        { name: 'HTML5', icon: FileCode, description: 'Structure sémantique des pages web' },
+        { name: 'CSS3', icon: FileCode, description: 'Stylisation et design responsive' },
+        { name: 'JavaScript', icon: Code, description: 'Interactivité et logique front-end' },
+        { name: 'PHP', icon: Code, description: 'Développement back-end et API' },
+        { name: 'CodeIgniter', icon: Code, description: 'Framework PHP pour applications web' },
+        { name: 'SQL', icon: Database, description: 'Gestion de bases de données relationnelles' },
+        { name: 'WordPress', icon: Globe, description: 'CMS pour sites web et blogs' },
+        { name: 'REST API', icon: Cloud, description: 'Architecture d\'API pour services web' },
       ],
     },
     {
@@ -33,8 +42,9 @@ const Skills = () => {
       icon: Smartphone,
       color: 'accent',
       skills: [
-        { name: 'Android', level: 75, tools: 'Kotlin, Java' },
-        { name: 'IDE', level: 80, tools: 'Android Studio' },
+        { name: 'Kotlin', icon: Code, description: 'Langage moderne pour Android natif' },
+        { name: 'Java', icon: Code, description: 'Développement d\'applications Android' },
+        { name: 'Android Studio', icon: Monitor, description: 'IDE officiel pour le développement Android' },
       ],
     },
     {
@@ -42,10 +52,12 @@ const Skills = () => {
       icon: Wrench,
       color: 'primary',
       skills: [
-        { name: 'Conteneurisation', level: 70, tools: 'Docker' },
-        { name: 'Versioning', level: 85, tools: 'GitHub' },
-        { name: 'Virtualisation', level: 80, tools: 'VirtualBox, VMware' },
-        { name: 'IDE', level: 85, tools: 'VSCode, PhpStorm' },
+        { name: 'Docker', icon: Package, description: 'Conteneurisation et déploiement d\'applications' },
+        { name: 'GitHub', icon: GitBranch, description: 'Versioning et collaboration de code' },
+        { name: 'VirtualBox', icon: HardDrive, description: 'Virtualisation de systèmes d\'exploitation' },
+        { name: 'VMware', icon: HardDrive, description: 'Solutions de virtualisation professionnelle' },
+        { name: 'VSCode', icon: Monitor, description: 'Éditeur de code polyvalent et extensible' },
+        { name: 'PhpStorm', icon: Monitor, description: 'IDE professionnel pour PHP et web' },
       ],
     },
   ];
@@ -70,44 +82,49 @@ const Skills = () => {
             <div className="w-20 h-1 bg-gradient-cyber mx-auto rounded-full shadow-neon-blue" />
           </div>
 
-          {/* Skills Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {skillCategories.map((category, categoryIndex) => (
-              <Card
-                key={categoryIndex}
-                className="p-8 bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/50 transition-all duration-300 hover-float animate-fade-up"
-                style={{ animationDelay: `${categoryIndex * 0.1}s` }}
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`p-3 bg-${category.color}/10 rounded-lg`}>
-                    <category.icon className={`w-6 h-6 text-${category.color}`} />
-                  </div>
-                  <h3 className="text-2xl font-display font-bold">{category.title}</h3>
+          {/* Skills Categories */}
+          {skillCategories.map((category, categoryIndex) => (
+            <div 
+              key={categoryIndex}
+              className="mb-16 animate-fade-up"
+              style={{ animationDelay: `${categoryIndex * 0.15}s` }}
+            >
+              {/* Category Header */}
+              <div className="flex items-center gap-3 mb-8">
+                <div className="p-3 bg-primary/10 rounded-lg shadow-neon-blue">
+                  <category.icon className="w-7 h-7 text-primary" />
                 </div>
+                <h3 className="text-3xl font-display font-bold glow-blue">{category.title}</h3>
+              </div>
 
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="group">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-medium text-foreground">{skill.name}</span>
-                        <span className="text-sm text-muted-foreground">{skill.level}%</span>
+              {/* Skills Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {category.skills.map((skill, skillIndex) => (
+                  <Card
+                    key={skillIndex}
+                    className="group p-6 bg-card/40 backdrop-blur-sm border-primary/20 hover:border-primary/60 transition-all duration-300 hover:shadow-neon-blue hover:-translate-y-1 cursor-pointer"
+                  >
+                    <div className="flex items-start gap-4">
+                      {/* Skill Icon */}
+                      <div className="p-2.5 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
+                        <skill.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" />
                       </div>
                       
-                      {/* Progress Bar */}
-                      <div className="relative h-2 bg-muted rounded-full overflow-hidden">
-                        <div
-                          className={`absolute inset-y-0 left-0 bg-gradient-cyber rounded-full transition-all duration-1000 ease-out shadow-neon-blue`}
-                          style={{ width: `${skill.level}%` }}
-                        />
+                      {/* Skill Info */}
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-display font-bold text-lg mb-1 text-foreground group-hover:glow-blue transition-all duration-300">
+                          {skill.name}
+                        </h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {skill.description}
+                        </p>
                       </div>
-
-                      <p className="text-xs text-muted-foreground mt-1">{skill.tools}</p>
                     </div>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          ))}
 
           {/* Training Platforms */}
           <div>
