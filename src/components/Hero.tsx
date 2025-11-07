@@ -22,10 +22,12 @@ const TypingText = ({ text }: { text: string }) => {
   }, [text]);
   
   return (
-    <p className="text-sm text-primary font-mono">
-      {displayText}
-      <span className="inline-block w-2 h-4 bg-primary ml-1 animate-pulse" />
-    </p>
+    <div className="inline-flex items-center gap-2 px-6 py-3 bg-black/80 border border-green-500/30 rounded-lg backdrop-blur-sm">
+      <p className="text-sm text-green-400 font-mono tracking-wide glow-text">
+        {displayText}
+        <span className="inline-block w-2 h-4 bg-green-400 ml-1 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.8)]" />
+      </p>
+    </div>
   );
 };
 
