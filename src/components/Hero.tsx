@@ -4,38 +4,14 @@ import { Button } from '@/components/ui/button';
 import heroBg from '@/assets/hero-bg.jpg';
 import avatar from '@/assets/avatar.jpg';
 
-const TypingText = ({ text }: { text: string }) => {
-  const [displayText, setDisplayText] = useState('');
-  
-  useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < text.length) {
-        setDisplayText(text.substring(0, index + 1));
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 50);
-    
-    return () => clearInterval(interval);
-  }, [text]);
-  
-  return (
-    <div className="inline-flex items-center gap-2 px-6 py-3 bg-black/80 border border-green-500/30 rounded-lg backdrop-blur-sm">
-      <p className="text-sm text-green-400 font-mono tracking-wide glow-text">
-        {displayText}
-        <span className="inline-block w-2 h-4 bg-green-400 ml-1 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.8)]" />
-      </p>
-    </div>
-  );
-};
-
 const Hero = () => {
   const [missionStarted, setMissionStarted] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
   const [scanComplete, setScanComplete] = useState(false);
   const [logs, setLogs] = useState<string[]>([]);
+  const [typedText, setTypedText] = useState('');
+  const fullText = '> Initializing cyber defense systems...';
+  const [cursorVisible, setCursorVisible] = useState(true);
   
   const scanLogs = [
     '> Initializing network scan...',
@@ -63,6 +39,27 @@ const Hero = () => {
     '> Clearance level: AUTHORIZED',
     '> Loading mission report...',
   ];
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setTypedText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 50);
+
+    const cursorInterval = setInterval(() => {
+      setCursorVisible((prev) => !prev);
+    }, 500);
+
+    return () => {
+      clearInterval(typingInterval);
+      clearInterval(cursorInterval);
+    };
+  }, []);
 
   useEffect(() => {
     if (missionStarted && !scanComplete) {
@@ -187,7 +184,10 @@ const Hero = () => {
 
             {/* Typing Animation */}
             <div className="text-center animate-fade-up" style={{ animationDelay: '0.3s' }}>
-              <TypingText text="> Initializing cyber defense systems..." />
+              <p className="text-primary font-mono text-sm md:text-base">
+                {typedText}
+                <span className={`inline-block w-2 h-4 bg-primary ml-1 ${cursorVisible ? 'opacity-100' : 'opacity-0'}`} />
+              </p>
             </div>
           </div>
         </div>
