@@ -4,6 +4,31 @@ import { Button } from '@/components/ui/button';
 import heroBg from '@/assets/hero-bg.jpg';
 import avatar from '@/assets/avatar.jpg';
 
+const TypingText = ({ text }: { text: string }) => {
+  const [displayText, setDisplayText] = useState('');
+  
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < text.length) {
+        setDisplayText(text.substring(0, index + 1));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 50);
+    
+    return () => clearInterval(interval);
+  }, [text]);
+  
+  return (
+    <p className="text-sm text-primary font-mono">
+      {displayText}
+      <span className="inline-block w-2 h-4 bg-primary ml-1 animate-pulse" />
+    </p>
+  );
+};
+
 const Hero = () => {
   const [missionStarted, setMissionStarted] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
@@ -158,11 +183,9 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Warning Notice */}
+            {/* Typing Animation */}
             <div className="text-center animate-fade-up" style={{ animationDelay: '0.3s' }}>
-              <p className="text-sm text-muted-foreground font-mono">
-                <span className="text-red-500">⚠</span> Avertissement : Cette opération est surveillée par l'équipe de sécurité
-              </p>
+              <TypingText text="> Initializing cyber defense systems..." />
             </div>
           </div>
         </div>
