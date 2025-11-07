@@ -138,7 +138,7 @@ const Hero = () => {
             <div className="flex justify-center mb-8 animate-fade-in">
               <div className="inline-flex items-center gap-3 px-6 py-3 bg-red-500/10 border border-red-500/30 rounded-full">
                 <AlertTriangle className="w-5 h-5 text-red-500 animate-pulse" />
-                <span className="text-sm font-mono text-red-500 font-semibold">MISSION CLASSIFIED</span>
+                <span className="text-sm font-mono text-red-500 font-semibold">MISSION</span>
               </div>
             </div>
 
@@ -300,7 +300,7 @@ const Hero = () => {
       <div className="absolute top-[132px] left-1/2 -translate-x-1/2 z-20 animate-fade-in">
         <div className="inline-flex items-center gap-3 px-6 py-3 bg-green-500/10 border border-green-500/30 rounded-full">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-          <span className="text-sm font-mono text-green-500 font-semibold">MISSION COMPLETE - PROFILE ACCESSED</span>
+          <span className="text-sm font-mono text-green-500 font-semibold">MISSION RÉUSSITE - CV TROUVÉ</span>
         </div>
       </div>
 

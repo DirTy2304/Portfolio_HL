@@ -17,19 +17,13 @@ const Certifications = () => {
       description: 'Bonnes pratiques de sécurité'
     },
     {
-      name: 'TryHackMe',
-      title: 'Penetration Testing',
+      name: 'HackTheBox',
+      title: 'Pentesting',
       icon: FileCheck,
       color: 'from-green-500 to-emerald-500',
-      description: 'Tests d\'intrusion'
-    },
-    {
-      name: 'Security+',
-      title: 'CompTIA',
-      icon: Award,
-      color: 'from-orange-500 to-red-500',
       description: 'Certification en préparation'
-    }
+    },
+
   ];
 
   return (
@@ -51,7 +45,7 @@ const Certifications = () => {
         </div>
 
         {/* Certifications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {certifications.map((cert, index) => (
             <div
               key={index}
