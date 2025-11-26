@@ -12,7 +12,7 @@ const Hero = () => {
   const [typedText, setTypedText] = useState('');
   const fullText = '> Initializing cyber defense systems...';
   const [cursorVisible, setCursorVisible] = useState(true);
-  const logsEndRef = useRef<HTMLDivElement>(null);
+  const logsContainerRef = useRef<HTMLDivElement>(null);
   
   const scanLogs = [
     '> Initializing network scan...',
@@ -95,7 +95,9 @@ const Hero = () => {
   }, [missionStarted, scanComplete]);
 
   useEffect(() => {
-    logsEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (logsContainerRef.current) {
+      logsContainerRef.current.scrollTop = logsContainerRef.current.scrollHeight;
+    }
   }, [logs]);
 
   const startMission = () => {
@@ -250,7 +252,7 @@ const Hero = () => {
                 <Terminal className="w-4 h-4 text-primary" />
                 <span className="text-primary">root@soc-terminal:~$</span>
               </div>
-              <div className="space-y-1 overflow-y-auto h-[320px] scrollbar-thin scrollbar-thumb-primary/30">
+              <div ref={logsContainerRef} className="space-y-1 overflow-y-auto h-[320px] scrollbar-thin scrollbar-thumb-primary/30">
                 {logs.map((log, index) => (
                   <div 
                     key={index}
@@ -261,7 +263,6 @@ const Hero = () => {
                   </div>
                 ))}
                 <div className="inline-block w-2 h-4 bg-green-400 animate-pulse ml-1" />
-                <div ref={logsEndRef} />
               </div>
             </div>
 
