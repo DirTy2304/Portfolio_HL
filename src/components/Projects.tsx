@@ -8,38 +8,41 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Plateforme de Gestion Ambulances',
+      title: 'SANIOS',
       category: 'web',
-      description: 'Application web complète pour la gestion du parc informatique et des interventions chez Étoile Secours Ambulances.',
-      technologies: ['PHP', 'CodeIgniter', 'SQL', 'JavaScript'],
+      description: 'Application web pour la gestion gestion des ambulances (invenaire et désinfection), avec 4 profils utilisateurs ( Régulation, Ambulancier, Mécanicien et Administrateur)',
+      technologies: ['PHP', 'HTML/CSS', 'JavaScript', 'SQL'],
       icon: Globe,
       color: 'primary',
+      demoLink: 'https://ambu17.com/nouveausanios', // Placeholder demo link
     },
     {
-      title: 'Outil d\'Analyse de Vulnérabilités',
+      title: 'HONEY PAWN',
       category: 'cyber',
-      description: 'Scanner automatisé de vulnérabilités web basé sur OWASP Top 10, développé pour l\'apprentissage du pentesting.',
-      technologies: ['Python', 'Nmap', 'Burp Suite API'],
+      description: 'Honeypawn est un laboratoire de cybersécurité simulant un système d’information complet avec serveurs, réseau sécurisé, SIEM, IDS/IPS et honeypots. Il permet de tester des attaques et d’évaluer l’efficacité des défenses dans un environnement réaliste.',
+      technologies: ['Python', 'Nmap', 'HTML/CSS', 'REACT','JS','Docker'],
       icon: Shield,
       color: 'secondary',
+      
     },
-    {
+    /*{
       title: 'Application Mobile de Sécurité',
       category: 'mobile',
       description: 'Application Android de gestion de mots de passe avec chiffrement AES-256 et authentification biométrique.',
       technologies: ['Kotlin', 'Android Studio', 'SQLite'],
       icon: Smartphone,
       color: 'accent',
-    },
+    },*/
     {
-      title: 'Dashboard de Monitoring Réseau',
+      title: 'TOURNAMENT GAMES',
       category: 'web',
-      description: 'Interface de surveillance en temps réel du trafic réseau avec alertes de sécurité automatisées.',
-      technologies: ['React', 'Node.js', 'Wireshark API'],
+      description: 'Projet de BTS SIO qui avait pour but de faire une application web et mobile pour organiser des tournois de jeux vidéos entre école.',
+      technologies: ['PHP', 'HTML/CSS','CodeIgniter4', 'Bootstrap', 'Kotlin', 'API'],
       icon: Globe,
       color: 'primary',
+      
     },
-    {
+    /*{
       title: 'Lab OSINT Automation',
       category: 'cyber',
       description: 'Suite d\'outils automatisés pour la collecte d\'informations OSINT (Maltego, Sherlock, TheHarvester).',
@@ -54,13 +57,13 @@ const Projects = () => {
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
       icon: Globe,
       color: 'primary',
-    },
+    },*/
   ];
 
   const filters = [
     { id: 'all', label: 'Tous les projets' },
     { id: 'web', label: 'Web' },
-    { id: 'mobile', label: 'Mobile' },
+    /*{ id: 'mobile', label: 'Mobile' },*/
     { id: 'cyber', label: 'Cybersécurité' },
   ];
 
@@ -137,23 +140,20 @@ const Projects = () => {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-2">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 border-primary/30 hover:border-primary hover:bg-primary/10 group"
-                    >
-                      <Github className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                      Code
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 border-secondary/30 hover:border-secondary hover:bg-secondary/10 group"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                      Demo
-                    </Button>
+                  <div className="flex gap-2 justify-center">
+                    {project.demoLink && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 border-secondary/30 hover:border-secondary hover:bg-secondary/10 group"
+                        asChild
+                      >
+                        <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </Card>

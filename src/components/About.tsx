@@ -70,11 +70,8 @@ const About = () => {
       description: '',
     },
   ];
+const contact = [
 
-  const contact = [
-    { icon: MapPin, label: '22, rue des Merles, 17220 Saint-Rogatien' },
-    { icon: Phone, label: '06 17 51 72 02' },
-    { icon: Mail, label: 'hugo.lambert23@sfr.fr' },
   ];
 
   return (

@@ -45,7 +45,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: 'Localisation',
-      value: 'Saint-Rogatien, 17220',
+      value: 'La Rochelle, 17000',
       href: '#',
       color: 'accent',
     },
@@ -54,14 +54,12 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: Github,
-      label: 'GitHub',
-      href: '#',
+      href: 'https://github.com/DirTy2304',
       color: 'primary',
     },
     {
       icon: Linkedin,
-      label: 'LinkedIn',
-      href: '#',
+      href: 'https://www.linkedin.com/in/hugoo-lambert',
       color: 'secondary',
     },
   ];
