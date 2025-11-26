@@ -3,7 +3,7 @@ import { Card } from '@/components/ui/card';
 import { useEffect, useRef, useState } from 'react';
 
 const About = () => {
-  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set([0]));
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
