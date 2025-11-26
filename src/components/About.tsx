@@ -1,7 +1,38 @@
 import { GraduationCap, Briefcase, Award, MapPin, Mail, Phone } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { useEffect, useRef, useState } from 'react';
 
 const About = () => {
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers = itemRefs.current.map((ref, index) => {
+      if (!ref) return null;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setVisibleItems((prev) => new Set(prev).add(index));
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+          rootMargin: '0px 0px -100px 0px',
+        }
+      );
+
+      observer.observe(ref);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach((observer) => observer?.disconnect());
+    };
+  }, []);
+
   const timeline = [
     {
       year: '2026 - 2028',
@@ -104,8 +135,13 @@ const About = () => {
                 {timeline.map((item, index) => (
                   <div
                     key={index}
-                    className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 ${
+                    ref={(el) => (itemRefs.current[index] = el)}
+                    className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 transition-all duration-700 ${
                       index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                    } ${
+                      visibleItems.has(index)
+                        ? 'opacity-100 translate-y-0'
+                        : 'opacity-0 translate-y-8'
                     }`}
                   >
                     {/* Timeline Dot */}
