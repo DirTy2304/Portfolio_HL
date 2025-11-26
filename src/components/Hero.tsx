@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Shield, Terminal, Activity, AlertTriangle, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroBg from '@/assets/hero-bg.jpg';
@@ -12,6 +12,7 @@ const Hero = () => {
   const [typedText, setTypedText] = useState('');
   const fullText = '> Initializing cyber defense systems...';
   const [cursorVisible, setCursorVisible] = useState(true);
+  const logsEndRef = useRef<HTMLDivElement>(null);
   
   const scanLogs = [
     '> Initializing network scan...',
@@ -92,6 +93,10 @@ const Hero = () => {
       };
     }
   }, [missionStarted, scanComplete]);
+
+  useEffect(() => {
+    logsEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [logs]);
 
   const startMission = () => {
     setMissionStarted(true);
@@ -256,6 +261,7 @@ const Hero = () => {
                   </div>
                 ))}
                 <div className="inline-block w-2 h-4 bg-green-400 animate-pulse ml-1" />
+                <div ref={logsEndRef} />
               </div>
             </div>
 
