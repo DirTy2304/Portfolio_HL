@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import { toast } from 'sonner';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,17 +15,31 @@ const Contact = () => {
     message: '',
   });
 
+  const PUBLIC_KEY = '9dhyiFanAK8u8Xogu';
+  const SERVICE_ID = 'service_wvzm1cq';
+  const TEMPLATE_ID = 'template_l7hphyp';
+
+  // Initialize EmailJS with your public key
+  emailjs.init(PUBLIC_KEY);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
-    toast.success('Message envoyé avec succès ! 🚀', {
-      description: 'Je vous répondrai dans les plus brefs délais.',
-      duration: 4000,
-    });
-
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, formData)
+      .then((result) => {
+        toast.success('Message envoyé avec succès ! 🚀', {
+          description: 'Je vous répondrai dans les plus brefs délais.',
+          duration: 4000,
+        });
+        // Reset form
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }, (error) => {
+        toast.error('Échec de l\'envoi du message. 😟', {
+          description: 'Veuillez réessayer ou me contacter directement.',
+          duration: 4000,
+        });
+        console.error('EmailJS error:', error);
+      });
   };
 
   const contactInfo = [
@@ -56,11 +71,13 @@ const Contact = () => {
       icon: Github,
       href: 'https://github.com/DirTy2304',
       color: 'primary',
+      label: 'Github',
     },
     {
       icon: Linkedin,
       href: 'https://www.linkedin.com/in/hugoo-lambert',
       color: 'secondary',
+      label: 'Linkedin',
     },
   ];
 
@@ -116,6 +133,8 @@ const Contact = () => {
                     <a
                       key={index}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`flex-1 p-4 bg-card/50 backdrop-blur-sm border border-${social.color}/30 hover:border-${social.color}/50 rounded-lg transition-all duration-300 hover-float group`}
                     >
                       <div className="flex flex-col items-center gap-2">

@@ -16,9 +16,8 @@ const Footer = () => {
           {/* Copyright */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span>© 2025 Hugo Lambert</span>
-            <span>•</span>
             <span className="flex items-center gap-1">
-              Made with <Heart className="w-4 h-4 text-primary fill-primary" /> and cybersecurity passion
+             
             </span>
           </div>
 

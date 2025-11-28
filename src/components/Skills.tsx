@@ -8,7 +8,7 @@ const Skills = () => {
       { name: 'Burp Suite', description: 'Plateforme d\'analyse et de test de sécurité des applications web.', icon: Shield },
       { name: 'Wireshark', description: 'Analyseur de paquets réseau pour inspecter le trafic.', icon: Network },
       { name: 'Aircrack-ng', description: 'Suite d\'outils pour l\'audit et le test de sécurité Wi-Fi.', icon: Terminal },
-      { name: 'Hydra', description: 'Outil de craquage de mots de passe par force brute en ligne.', icon: Target },
+      { name: 'Hydra', description: 'Outil de craquage de mots de passe par force brute.', icon: Target },
     ],
     development: [
       { name: 'HTML / CSS', description: 'Langages de base pour la conception web front-end.', icon: Globe },
@@ -18,7 +18,7 @@ const Skills = () => {
       { name: 'Kotlin / Java', description: 'Langages pour le développement d\'applications mobiles.', icon: Smartphone },
     ],
     tools: [
-      { name: 'Linux (Kali)', description: 'Distribution spécialisée pour les tests de sécurité.', icon: Terminal },
+      { name: 'Linux (Kali/Arch)', description: 'Distribution spécialisée pour les tests de sécurité.', icon: Terminal },
       { name: 'Docker', description: 'Plateforme de conteneurisation pour le déploiement d\'applications.', icon: Wrench },
       { name: 'GitHub', description: 'Plateforme de gestion de versions et de collaboration.', icon: Wrench },
       { name: 'VirtualBox', description: 'Logiciel de virtualisation pour créer des environnements de test.', icon: Wrench },
