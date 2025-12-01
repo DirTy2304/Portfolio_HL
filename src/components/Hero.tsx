@@ -342,24 +342,21 @@ const Hero = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="flex items-center justify-center animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <a
+            href="/cv/CV_Hugo_LAMBERT.pdf"
+            download="CV_Hugo_LAMBERT.pdf"
+            className="flex items-center justify-center animate-fade-up"
+            style={{ animationDelay: '0.2s' }}
+          >
             <Button
               size="lg"
               className="bg-black/80 border-2 border-primary hover:bg-primary/20 text-primary shadow-neon-blue font-mono font-bold px-12 py-8 text-xl group relative overflow-hidden"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/cv/CV_Hugo_LAMBERT.pdf';
-                link.download = 'CV_Hugo_LAMBERT.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-scan" />
               <Terminal className="w-6 h-6 mr-3 group-hover:animate-pulse relative z-10" />
               <span className="relative z-10">&gt; TELECHARGER_CV.pdf</span>
             </Button>
-          </div>
+          </a>
         </div>
       </div>
 
