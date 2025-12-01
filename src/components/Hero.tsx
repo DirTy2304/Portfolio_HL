@@ -347,7 +347,8 @@ const Hero = () => {
               size="lg"
               className="bg-black/80 border-2 border-primary hover:bg-primary/20 text-primary shadow-neon-blue font-mono font-bold px-12 py-8 text-xl group relative overflow-hidden"
               onClick={() => {
-                window.open('/cv/CV_Hugo_LAMBERT.pdf', '_blank');
+                const pdfUrl = `${import.meta.env.BASE_URL}cv/CV_Hugo_LAMBERT.pdf`;
+                window.open(pdfUrl, '_blank');
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-scan" />
