@@ -348,7 +348,7 @@ const Hero = () => {
               className="bg-black/80 border-2 border-primary hover:bg-primary/20 text-primary shadow-neon-blue font-mono font-bold px-12 py-8 text-xl group relative overflow-hidden"
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = '/public/cv/CV_Hugo_LAMBERT.pdf';
+                link.href = '/cv/CV_Hugo_LAMBERT.pdf';
                 link.download = 'CV_Hugo_LAMBERT.pdf';
                 document.body.appendChild(link);
                 link.click();
